@@ -631,7 +631,7 @@ export class AttendanceService {
       const { data: bashEvents, error: eventsError } = await this.supabase
         .from('events')
         .select('id, date')
-        .eq('type', 'Weekly Bash')
+        .eq('type', 'weeklyBash')
         .order('date', { ascending: false })
         .limit(12);
 
@@ -807,7 +807,7 @@ export class AttendanceService {
       const { data: bashEvents, error: eventsError } = await this.supabase
         .from('events')
         .select('id, date, title')
-        .eq('type', 'Weekly Bash')
+        .eq('type', 'weeklyBash')
         .gte('date', new Date(Date.now() - 8 * 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0])
         .order('date', { ascending: false });
 
